@@ -1,0 +1,45 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: club-web.postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  spring:
+    container_name: club-web.spring
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+
+      SPRING_DEVTOOLS_RESTART_ENABLED: ${DEVTOOLS_RESTART_ENABLED}
+      SPRING_DEVTOOLS_REMOTE_SECRET: ${DEVTOOLS_REMOTE_SECRET}
+      SPRING_DOCKER_COMPOSE_ENABLED: false
+
+    volumes:
+      - .:/app
+      - ~/.m2:/root/.m2
+      - /app/target
+    command: ["./mvnw", "spring-boot:run"]
+
+volumes:
+  postgres_data:
