@@ -33,6 +33,6 @@ public class User {
     @Column(name = "lastname", nullable = false)
     private String lastname;
 
-    @Column(name = "isAdmin")
+    @Column(name = "isAdmin", columnDefinition = "BOOLEAN")
     private Boolean isAdmin;
 }
