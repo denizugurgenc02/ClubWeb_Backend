@@ -24,7 +24,4 @@ public class Activity {
 
     @Column(name = "description")
     private String description;
-
-    @Column(name = "participants")
-    private List<Object> participants;
 }

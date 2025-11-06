@@ -1,7 +1,10 @@
 package org.denizugurgenc02.clubweb_backend.dto;
 
-import jakarta.persistence.Column;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class UserRequestDTO {
     private  String username;
 
