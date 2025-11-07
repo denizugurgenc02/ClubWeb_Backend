@@ -31,7 +31,12 @@ public class UserController {
     }
 
     @PutMapping(path = "/{id}")
-    public UserResponseDTO updateUser(@PathVariable(value = "id") Integer id, @RequestBody UserRequestDTO userRequestDTO) {
+    public UserResponseDTO putUser(@PathVariable(value = "id") Integer id, @RequestBody UserRequestDTO userRequestDTO) {
+        return userService.updateUser(id, userRequestDTO);
+    }
+
+    @PatchMapping
+    public UserResponseDTO pathUser(@PathVariable(value = "id") Integer id, @RequestBody UserRequestDTO userRequestDTO) {
         return userService.updateUser(id, userRequestDTO);
     }
 
