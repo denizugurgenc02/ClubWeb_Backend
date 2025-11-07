@@ -44,15 +44,40 @@ public class UserService {
     }
 
     public UserResponseDTO getUser(@RequestBody Integer id) {
-        return null;
+        User user = userRepository.read(id);
+        UserResponseDTO userResponseDTO = new UserResponseDTO();
+
+        BeanUtils.copyProperties(user, userResponseDTO);
+        return userResponseDTO;
     }
 
+    @Transactional
     public UserResponseDTO updateUser(@RequestBody Integer id , UserRequestDTO userRequestDTO) {
-        return null;
+        User existingUser = userRepository.read(id);
+        UserResponseDTO userResponseDTO = new UserResponseDTO();
+
+        if (existingUser != null) {
+            existingUser.setUsername(userRequestDTO.getUsername());
+            existingUser.setPassword(userRequestDTO.getPassword());
+            existingUser.setEmail(userRequestDTO.getEmail());
+            existingUser.setFirstname(userRequestDTO.getFirstname());
+            existingUser.setLastname(userRequestDTO.getLastname());
+            existingUser.setIsAdmin(userRequestDTO.getIsAdmin());
+
+            userRepository.update(existingUser);
+            BeanUtils.copyProperties(existingUser, userResponseDTO);
+        }
+        return userResponseDTO;
     }
 
+    @Transactional
     public UserResponseDTO deleteUser(@RequestBody Integer id) {
-        return null;
+        User user = userRepository.read(id);
+        userRepository.delete(id);
+        UserResponseDTO userResponseDTO = new UserResponseDTO();
+
+        BeanUtils.copyProperties(user, userResponseDTO);
+        return userResponseDTO;
     }
 
 }

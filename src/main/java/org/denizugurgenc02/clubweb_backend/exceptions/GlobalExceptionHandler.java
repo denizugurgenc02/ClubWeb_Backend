@@ -12,6 +12,6 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // Status Code -> 500
     public ErrorResponse handleException(Exception e) {
         System.err.println("Error: " + e.getMessage());
-        return new ErrorResponse("We have trouble", HttpStatus.INTERNAL_SERVER_ERROR.value());
+        return new ErrorResponse("We have trouble: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
 }

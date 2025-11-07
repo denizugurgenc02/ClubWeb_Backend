@@ -18,9 +18,9 @@ public class UserRequestDTO {
     @Email(message = "Email field must be right email format")
     private String email;
 
-    private String firstname;
+    private String firstname = "";
 
-    private String lastname;
+    private String lastname = "";
 
-    private Boolean isAdmin;
+    private Boolean isAdmin = false;
 }

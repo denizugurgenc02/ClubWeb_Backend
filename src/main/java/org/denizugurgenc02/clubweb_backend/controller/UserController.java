@@ -35,10 +35,10 @@ public class UserController {
         return userService.updateUser(id, userRequestDTO);
     }
 
-    @PatchMapping
+    /*@PatchMapping
     public UserResponseDTO pathUser(@PathVariable(value = "id") Integer id, @RequestBody UserRequestDTO userRequestDTO) {
         return userService.updateUser(id, userRequestDTO);
-    }
+    }*/
 
     @DeleteMapping(path = "/{id}")
     public UserResponseDTO deleteUser(@PathVariable(value = "id") Integer id) {
