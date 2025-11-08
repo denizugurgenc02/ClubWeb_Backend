@@ -34,6 +34,11 @@ public class AnnouncementController {
         return announcementService.putAnnouncement(id, announcementDTO);
     }
 
+    @PatchMapping("/{id}")
+    public AnnouncementDTO patchAnnouncement(@PathVariable Integer id, @RequestBody AnnouncementDTO announcementDTO) {
+        return announcementService.patchAnnouncement(id, announcementDTO);
+    }
+
 
     @DeleteMapping("/{id}")
     public AnnouncementDTO deleteAnnouncement(@PathVariable Integer id) {

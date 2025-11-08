@@ -12,6 +12,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ActivityDTO {
     private String title;
-
     private String description;
 }

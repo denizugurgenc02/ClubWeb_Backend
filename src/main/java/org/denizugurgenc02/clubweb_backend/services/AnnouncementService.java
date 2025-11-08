@@ -64,6 +64,19 @@ public class AnnouncementService {
     }
 
     @Transactional
+    public AnnouncementDTO patchAnnouncement(@RequestBody Integer id, AnnouncementDTO announcementDTO) {
+        Announcement existingAnnouncement = announcementRepository.read(id);
+
+        if (existingAnnouncement != null) {
+            existingAnnouncement.setTitle(announcementDTO.getTitle());
+            existingAnnouncement.setDescription(announcementDTO.getDescription());
+
+            announcementRepository.update(existingAnnouncement);
+        }
+        return announcementDTO;
+    }
+
+    @Transactional
     public AnnouncementDTO deleteAnnouncement(@RequestBody Integer id) {
         Announcement announcement = announcementRepository.read(id);
         AnnouncementDTO announcementDTO = new AnnouncementDTO();
