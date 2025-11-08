@@ -25,6 +25,7 @@ public class AnnouncementRepository{
     public Announcement read(Integer id){
         return entityManager.find(Announcement.class,id);
     }
+
     public List<Announcement> readAll(){
         TypedQuery<Announcement> query = entityManager.createQuery("FROM Announcement", Announcement.class);
 

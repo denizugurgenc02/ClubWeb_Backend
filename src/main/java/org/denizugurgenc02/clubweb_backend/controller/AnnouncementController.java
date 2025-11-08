@@ -15,28 +15,28 @@ public class AnnouncementController {
     private AnnouncementService announcementService;
 
     @PostMapping("/add")
-    public AnnouncementDTO add(@RequestBody AnnouncementDTO dto) {
-        return announcementService.add(dto);
+    public AnnouncementDTO addAnnouncement(@RequestBody AnnouncementDTO announcementDTO) {
+        return announcementService.addAnnouncement(announcementDTO);
     }
 
     @GetMapping("/list")
-    public List<AnnouncementDTO> getAll() {
-        return announcementService.getAll();
+    public List<AnnouncementDTO> getAllAnnouncement() {
+        return announcementService.getAllAnnouncement();
     }
 
     @GetMapping("/{id}")
-    public AnnouncementDTO getById(@PathVariable Integer id) {
-        return announcementService.getById(id);
+    public AnnouncementDTO getAnnouncement(@PathVariable Integer id) {
+        return announcementService.getAnnouncement(id);
     }
 
     @PutMapping("/{id}")
-    public AnnouncementDTO update(@PathVariable Integer id, @RequestBody AnnouncementDTO dto) {
-        return announcementService.update(id, dto);
+    public AnnouncementDTO putAnnouncement(@PathVariable Integer id, @RequestBody AnnouncementDTO announcementDTO) {
+        return announcementService.putAnnouncement(id, announcementDTO);
     }
 
 
     @DeleteMapping("/{id}")
-    public AnnouncementDTO delete(@PathVariable Integer id) {
-        return announcementService.delete(id);
+    public AnnouncementDTO deleteAnnouncement(@PathVariable Integer id) {
+        return announcementService.deleteAnnouncement(id);
     }
 }
