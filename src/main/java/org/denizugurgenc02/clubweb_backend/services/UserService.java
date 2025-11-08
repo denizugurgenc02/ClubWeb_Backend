@@ -1,7 +1,6 @@
 package org.denizugurgenc02.clubweb_backend.services;
 
 import jakarta.transaction.Transactional;
-import org.apache.coyote.BadRequestException;
 import org.denizugurgenc02.clubweb_backend.dto.UserRequestDTO;
 import org.denizugurgenc02.clubweb_backend.dto.UserResponseDTO;
 import org.denizugurgenc02.clubweb_backend.entities.User;
@@ -16,7 +15,6 @@ import java.util.List;
 
 @Service
 public class UserService {
-
     @Autowired
     private UserRepository userRepository;
 

@@ -1,5 +1,4 @@
 package org.denizugurgenc02.clubweb_backend.entities;
-import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
