@@ -26,7 +26,6 @@ public class StarterConfig {
     private String adminLastname;
 
     @Bean
-    @Primary
     public CommandLineRunner initAdminUser(UserService userService) {
         return args -> {
             if (userService.getUserList().isEmpty()) {

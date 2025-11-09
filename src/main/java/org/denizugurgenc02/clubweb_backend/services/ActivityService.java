@@ -1,20 +1,34 @@
 package org.denizugurgenc02.clubweb_backend.services;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import jakarta.transaction.Transactional;
 import org.denizugurgenc02.clubweb_backend.dto.ActivityDTO;
 import org.denizugurgenc02.clubweb_backend.entities.Activity;
 import org.denizugurgenc02.clubweb_backend.repository.ActivityRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Lazy
 @Service
 public class ActivityService {
     @Autowired
     private ActivityRepository activityRepository;
+
+    @PostConstruct
+    public void init(){
+        System.out.print("Initializing activity service\n");
+    }
+
+    @PreDestroy
+    public void destroy(){
+        System.out.print("Destroying activity service\n");
+    }
 
     @Transactional
     public ActivityDTO addActivity(ActivityDTO activityDTO) {

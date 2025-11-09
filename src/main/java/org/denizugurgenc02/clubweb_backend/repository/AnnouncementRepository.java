@@ -4,11 +4,13 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.denizugurgenc02.clubweb_backend.entities.Announcement;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@Lazy
 public class AnnouncementRepository{
     protected EntityManager entityManager;
 
