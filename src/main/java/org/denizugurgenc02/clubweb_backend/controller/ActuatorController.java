@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/actuator")
+@RequestMapping(path = "/api/actuator")
 public class ActuatorController {
     @GetMapping(path = "/health")
     public HealthModel healthModel() {

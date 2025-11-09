@@ -8,7 +8,6 @@ import org.denizugurgenc02.clubweb_backend.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Transactional
-    public UserResponseDTO addUser(@RequestBody UserRequestDTO userRequestDTO) {
+    public UserResponseDTO addUser(UserRequestDTO userRequestDTO) {
         User user = new User();
         UserResponseDTO userResponseDTO = new UserResponseDTO();
 
@@ -41,7 +40,7 @@ public class UserService {
         return userResponseDTOList;
     }
 
-    public UserResponseDTO getUser(@RequestBody Integer id) {
+    public UserResponseDTO getUser(Integer id) {
         User user = userRepository.read(id);
         UserResponseDTO userResponseDTO = new UserResponseDTO();
 
@@ -50,7 +49,7 @@ public class UserService {
     }
 
     @Transactional
-    public UserResponseDTO updateUser(@RequestBody Integer id , UserRequestDTO userRequestDTO) {
+    public UserResponseDTO updateUser(Integer id , UserRequestDTO userRequestDTO) {
         User existingUser = userRepository.read(id);
         UserResponseDTO userResponseDTO = new UserResponseDTO();
 
@@ -69,7 +68,7 @@ public class UserService {
     }
 
     @Transactional
-    public UserResponseDTO deleteUser(@RequestBody Integer id) {
+    public UserResponseDTO deleteUser(Integer id) {
         User user = userRepository.read(id);
         userRepository.delete(id);
         UserResponseDTO userResponseDTO = new UserResponseDTO();

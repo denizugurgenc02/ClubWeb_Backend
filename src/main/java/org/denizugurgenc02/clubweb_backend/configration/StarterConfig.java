@@ -29,7 +29,7 @@ public class StarterConfig {
     @Primary
     public CommandLineRunner initAdminUser(UserService userService) {
         return args -> {
-            if (userService.getUserList().size() == 0) {
+            if (userService.getUserList().isEmpty()) {
                 UserRequestDTO userRequestDTO = new UserRequestDTO(adminUsername, adminPassword, adminEmail, adminFirstname, adminLastname, true);
                 userService.addUser(userRequestDTO);
                 System.out.println("Adding a admin user");

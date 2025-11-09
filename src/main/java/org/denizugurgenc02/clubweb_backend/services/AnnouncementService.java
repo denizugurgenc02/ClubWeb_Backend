@@ -7,12 +7,9 @@ import org.denizugurgenc02.clubweb_backend.repository.AnnouncementRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class AnnouncementService {
@@ -21,7 +18,7 @@ public class AnnouncementService {
     AnnouncementRepository announcementRepository;
 
     @Transactional
-    public AnnouncementDTO addAnnouncement(@RequestBody AnnouncementDTO announcementDTO) {
+    public AnnouncementDTO addAnnouncement(AnnouncementDTO announcementDTO) {
         Announcement announcement = new Announcement();
         BeanUtils.copyProperties(announcementDTO, announcement);
 
@@ -42,7 +39,7 @@ public class AnnouncementService {
         return announcementDTOList;
     }
 
-    public AnnouncementDTO getAnnouncement(@RequestBody Integer id) {
+    public AnnouncementDTO getAnnouncement(Integer id) {
         Announcement announcement = announcementRepository.read(id);
         AnnouncementDTO announcementDTO = new AnnouncementDTO();
 
@@ -51,7 +48,7 @@ public class AnnouncementService {
     }
 
     @Transactional
-    public AnnouncementDTO putAnnouncement(@RequestBody Integer id, AnnouncementDTO announcementDTO) {
+    public AnnouncementDTO putAnnouncement(Integer id, AnnouncementDTO announcementDTO) {
         Announcement existingAnnouncement = announcementRepository.read(id);
 
         if (existingAnnouncement != null) {
@@ -64,7 +61,7 @@ public class AnnouncementService {
     }
 
     @Transactional
-    public AnnouncementDTO patchAnnouncement(@RequestBody Integer id, AnnouncementDTO announcementDTO) {
+    public AnnouncementDTO patchAnnouncement(Integer id, AnnouncementDTO announcementDTO) {
         Announcement existingAnnouncement = announcementRepository.read(id);
 
         if (existingAnnouncement != null) {
@@ -77,7 +74,7 @@ public class AnnouncementService {
     }
 
     @Transactional
-    public AnnouncementDTO deleteAnnouncement(@RequestBody Integer id) {
+    public AnnouncementDTO deleteAnnouncement(Integer id) {
         Announcement announcement = announcementRepository.read(id);
         AnnouncementDTO announcementDTO = new AnnouncementDTO();
 

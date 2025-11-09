@@ -7,7 +7,6 @@ import org.denizugurgenc02.clubweb_backend.repository.ActivityRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ public class ActivityService {
     private ActivityRepository activityRepository;
 
     @Transactional
-    public ActivityDTO addActivity(@RequestBody ActivityDTO activityDTO) {
+    public ActivityDTO addActivity(ActivityDTO activityDTO) {
         Activity activity = new Activity();
         BeanUtils.copyProperties(activityDTO, activity);
 
@@ -37,7 +36,7 @@ public class ActivityService {
         return activityDTOList;
     }
 
-    public ActivityDTO getActivity(@RequestBody Integer id) {
+    public ActivityDTO getActivity(Integer id) {
         Activity activity = activityRepository.read(id);
         ActivityDTO activityDTO = new ActivityDTO();
         BeanUtils.copyProperties(activity, activityDTO);
@@ -45,7 +44,7 @@ public class ActivityService {
     }
 
     @Transactional
-    public ActivityDTO putActivity(@RequestBody Integer id, ActivityDTO activityDTO) {
+    public ActivityDTO putActivity(Integer id, ActivityDTO activityDTO) {
         Activity existingActivity = activityRepository.read(id);
         if (existingActivity != null) {
             existingActivity.setDescription(activityDTO.getDescription());
@@ -57,7 +56,7 @@ public class ActivityService {
     }
 
     @Transactional
-    public ActivityDTO deleteActivity(@RequestBody Integer id) {
+    public ActivityDTO deleteActivity(Integer id) {
         Activity activity = activityRepository.read(id);
         activityRepository.delete(id);
         ActivityDTO activityDTO = new ActivityDTO();

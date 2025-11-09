@@ -3,7 +3,6 @@ package org.denizugurgenc02.clubweb_backend.repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.denizugurgenc02.clubweb_backend.entities.Announcement;
-import org.denizugurgenc02.clubweb_backend.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
