@@ -12,16 +12,9 @@
 			"item": [
 				{
 					"name": "List",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"zehrakurttekin\",\n    \"password\": \"asd123\",\n    \"email\": \"zehra@example.com\",\n    \"firstname\": \"Zehra\",\n    \"lastname\": \"Kurttekin\",\n    \"isAdmin\": true\n}"
-						},
 						"url": {
 							"raw": "localhost:9090/api/user/list",
 							"host": [
@@ -41,10 +34,6 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"username\": \"zehrakurttekin\",\n    \"password\": \"asd123\",\n    \"email\": \"zehra@example.com\",\n    \"firstname\": \"Zehra\",\n    \"lastname\": \"Kurttekin\",\n    \"isAdmin\": true\n}"
-								},
 								"url": {
 									"raw": "localhost:9090/api/user/list",
 									"host": [
@@ -346,16 +335,9 @@
 				},
 				{
 					"name": "List",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"zehrakurttekin\",\n    \"password\": \"asd123\",\n    \"email\": \"zehra@example.com\",\n    \"firstname\": \"Zehra\",\n    \"lastname\": \"Kurttekin\",\n    \"isAdmin\": true\n}"
-						},
 						"url": {
 							"raw": "localhost:9090/api/announcements/list",
 							"host": [
@@ -375,10 +357,6 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"username\": \"zehrakurttekin\",\n    \"password\": \"asd123\",\n    \"email\": \"zehra@example.com\",\n    \"firstname\": \"Zehra\",\n    \"lastname\": \"Kurttekin\",\n    \"isAdmin\": true\n}"
-								},
 								"url": {
 									"raw": "localhost:9090/api/announcements/list",
 									"host": [
