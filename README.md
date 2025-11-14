@@ -1,1 +1,16 @@
-Burası sonra doldurulacak.
+# For developers
+- Prerequisites
+    - You must have Docker and Docker Compose installed on your system to run this project.
+- Build the Docker Image
+    - ```docker compose build```
+- Bring Up the Containers
+    - ```docker compose up```
+- After successful execution, your project will be raised and accessible via the specified ports.
+- Port Information
+    - 9090 -> Application Service Port
+    - 5432 -> PostgreSQL Service Port
+- Database Credentials Management
+    - Your DB Credentials are stored in the **.env** file. Please ensure you keep this file secret
+- Changing Default Admin Credentials
+    - If you wish to change the default user credentials, you must work on the **application.properties** file.
+        - admin.username=admin admin.password=asd123 admin.email=admin@example.com admin.firstname=admin admin.lastname=admin
