@@ -79,9 +79,12 @@ public class AnnouncementService {
         Announcement existingAnnouncement = announcementRepository.read(id);
 
         if (existingAnnouncement != null) {
-            existingAnnouncement.setTitle(announcementDTO.getTitle());
-            existingAnnouncement.setDescription(announcementDTO.getDescription());
-
+            if (announcementDTO.getTitle() != null) {
+                existingAnnouncement.setTitle(announcementDTO.getTitle());
+            }
+            if  (announcementDTO.getDescription() != null) {
+                existingAnnouncement.setDescription(announcementDTO.getDescription());
+            }
             announcementRepository.update(existingAnnouncement);
         }
         return announcementDTO;
